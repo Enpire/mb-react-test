@@ -7,40 +7,40 @@ export function saveAlbum(id, info) {
   return {
     type: types.SAVE_ALBUM,
     albumId: id,
-    albumInfo: info
+    albumInfo: info,
   };
 }
 
 export function deleteAlbum(id) {
   return {
     type: types.DELETE_ALBUM,
-    albumId: id
+    albumId: id,
   };
 }
 
 export function searchRequest(query) {
   return {
     type: types.SEARCH_REQUEST,
-    query: query
+    query: query,
   };
 }
 
 export function searchResult(albumInfoList) {
   return {
     type: types.SEARCH_RESULT,
-    albumInfoList: albumInfoList
-  }
+    albumInfoList: albumInfoList,
+  };
 }
 
 export function searchError(error) {
   return {
     type: types.SEARCH_ERROR,
-    error: error
-  }
+    error: error,
+  };
 }
 
 export function showSaved() {
   return {
-    type: types.SHOW_SAVED
-  }
+    type: types.SHOW_SAVED,
+  };
 }

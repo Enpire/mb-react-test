@@ -43,10 +43,14 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "dependencies": {
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "redux": "latest",
-    "redux-persist": "^4.8.0",
-    "react-redux": "latest"
+    "isomorphic-fetch": "latest",
+    "lodash": "latest",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-prop-types": "^0.4.0",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-persist": "^4.8.0"
   }
 }
