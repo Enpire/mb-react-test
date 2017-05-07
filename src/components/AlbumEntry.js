@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/main.sass'
 
 export default class AlbumEntry extends Component {
   static propTypes = {
@@ -12,22 +13,40 @@ export default class AlbumEntry extends Component {
     deleteAction: PropTypes.func.isRequired,
   };
 
+  action() {
+    if (this.props.isSaved) {
+      return  <button onClick={this.deleteAlbum.bind(this)}>
+                Delete album
+              </button>;
+    }
+    else {
+      return  <button onClick={this.saveAlbum.bind(this)}>
+                Save album
+              </button>;
+    }
+  }
+
   render() {
     return <li>
-      <h3>{this.props.data.title}</h3>
-      <span>By {this.props.data.artist}, {this.props.data.date}</span>
-      <button onClick={this.toggleSave.bind(this)}>
-        Saved: {this.props.isSaved.toString()}
-      </button>
+      <div className="albumEntry">
+        <div className="albumInfo">
+          <h3>{this.props.data.title}</h3>
+          <span>By {this.props.data.artist}, {this.props.data.date}</span>
+        </div>
+        <div className="albumActions">
+          {this.action()}
+        </div>
+      </div>
     </li>;
   }
 
-  toggleSave() {
-    if (this.props.isSaved) {
-      this.props.deleteAction(this.props.data.id);
-    }
-    else {
-      this.props.saveAction(this.props.data.id, this.props.data);
-    }
+  deleteAlbum() {
+    console.log(this);
+    this.props.deleteAction(this.props.data.id);
+  }
+
+  saveAlbum() {
+    console.log(this);
+    this.props.saveAction(this.props.data.id, this.props.data);
   }
 }

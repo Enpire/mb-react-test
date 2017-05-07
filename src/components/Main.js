@@ -10,6 +10,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import fetch from 'isomorphic-fetch';
 import * as URL from '../constants/URL';
+import styles from '../styles/main.sass'
 
 
 class Main extends Component {
@@ -32,11 +33,17 @@ class Main extends Component {
     const actions = bindActionCreators(Actions, this.props.dispatch);
     return (
       <div>
-        <div>
-          <SearchForm searchRequest={this.searchRequest.bind(this)}/>
-          <button onClick={actions.showSaved}>Show saved</button>
+        <div className="toolPanel">
+          <div className="searchField">
+            <SearchForm searchRequest={this.searchRequest.bind(this)}/>
+          </div>
+          <div className="buttonShowSaved">
+            <button onClick={actions.showSaved}>Show saved</button>
+          </div>
         </div>
+        <div>
         {this.content(actions)}
+        </div>
       </div>
     );
   }
